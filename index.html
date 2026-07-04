@@ -4,56 +4,639 @@
   <meta charset="utf-8">
   <title>The Expert Appraiser | Angelica Ximenes Chapman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Luxury jewelry and personal property appraisal services by Angelica Ximenes Chapman in Houston, Texas.">
   <style>
+    :root {
+      --navy: #0f1d3a;
+      --navy-2: #16264a;
+      --gold: #b99145;
+      --gold-soft: #d7bb85;
+      --ivory: #f7f3ed;
+      --white: #ffffff;
+      --text: #223047;
+      --muted: #6c7686;
+      --line: #e7dfd1;
+      --shadow: 0 18px 45px rgba(15, 29, 58, 0.12);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      background: #faf8f3;
-      color: #1f2933;
+      color: var(--text);
+      background: var(--ivory);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: rgba(15, 29, 58, 0.96);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner {
       display: flex;
-      min-height: 100vh;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand .kicker {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 4px;
+    }
+
+    .brand .name {
+      font-size: 28px;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .brand .sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 4px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 15px;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      background:
+        linear-gradient(90deg, rgba(15,29,58,0.88) 0%, rgba(15,29,58,0.78) 26%, rgba(15,29,58,0.36) 48%, rgba(15,29,58,0.08) 62%, rgba(15,29,58,0.00) 100%),
+        url('images/hero-main.png') center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.22));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      padding: 88px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 0.98;
+      font-weight: 700;
+    }
+
+    .hero h2 {
+      margin: 0 0 20px;
+      font-size: clamp(22px, 3vw, 30px);
+      color: #f1e6d1;
+      font-weight: 400;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 560px;
+      color: rgba(255,255,255,0.92);
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 32px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: 0.2s ease;
     }
-    .card {
-      max-width: 720px;
-      border: 1px solid #d8c7a3;
-      background: white;
-      padding: 48px 36px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.08);
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      box-shadow: var(--shadow);
     }
-    h1 {
-      font-size: 42px;
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #a98033;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.55);
+      color: var(--white);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .section-head .mini {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-head h3 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
       margin: 0 0 12px;
-      letter-spacing: .04em;
+      color: var(--navy);
     }
-    h2 {
-      font-size: 20px;
-      font-weight: normal;
-      margin: 0 0 28px;
-      color: #8a6f2a;
-    }
-    p {
+
+    .section-head p {
+      margin: 0;
       font-size: 18px;
-      line-height: 1.6;
-      margin: 0 0 18px;
+      color: var(--muted);
     }
-    .small {
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .about-copy p {
+      margin: 0 0 18px;
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    .about-copy .signature-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .about-image-wrap {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .about-image-wrap img {
+      border-radius: 12px;
+      width: 100%;
+      height: auto;
+    }
+
+    .services {
+      background: #fcfaf6;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 10px 30px rgba(15,29,58,0.05);
+    }
+
+    .card h4 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: var(--navy);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .trust-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(15,29,58,0.05);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .cta-band {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .cta-panel {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 22px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel .mini {
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .cta-panel h3 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      margin: 0 0 14px;
+    }
+
+    .cta-panel p {
+      margin: 0 0 22px;
+      color: rgba(255,255,255,0.88);
+      font-size: 17px;
+    }
+
+    .cta-image-wrap {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-image-wrap img {
+      border-radius: 12px;
+      width: 100%;
+    }
+
+    .footer {
+      background: #0c1730;
+      color: rgba(255,255,255,0.85);
+      padding: 34px 0;
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
       font-size: 14px;
-      color: #6b7280;
-      margin-top: 32px;
+    }
+
+    .footer a {
+      color: #f1d7a1;
+    }
+
+    @media (max-width: 980px) {
+      .about-grid,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(15,29,58,0.72) 0%, rgba(15,29,58,0.82) 100%),
+          url('images/hero-main.png') center center / cover no-repeat;
+      }
+
+      .hero-content {
+        max-width: 100%;
+        padding: 76px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 14px;
+        font-size: 14px;
+      }
+
+      .service-grid,
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding: 64px 0;
+      }
+
+      .card,
+      .cta-panel {
+        padding: 24px 20px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>The Expert Appraiser</h1>
-    <h2>Angelica Ximenes Chapman</h2>
-    <p>Fine jewelry, diamonds, luxury pieces, and professional appraisal services.</p>
-    <p>Website coming soon.</p>
-    <p class="small">Houston, Texas</p>
-  </main>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="kicker">Luxury Appraisal & Advisory</span>
+        <span class="name">The Expert Appraiser</span>
+        <span class="sub">Angelica Ximenes Chapman</span>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Fine Jewelry • Diamonds • Personal Property</span>
+        <h1>The Expert Appraiser</h1>
+        <h2>Angelica Ximenes Chapman</h2>
+        <p>
+          Refined appraisal and advisory services for fine jewelry, diamonds, luxury pieces,
+          and select personal property — delivered with professionalism, discretion, and elevated taste.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Request a Consultation</a>
+          <a class="btn btn-secondary" href="#services">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <span class="mini">About</span>
+        <h3>A polished, client-focused approach to luxury appraisal.</h3>
+        <p>
+          This is a draft preview site designed to introduce the brand direction:
+          elegant, trustworthy, and highly personal.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>
+            Angelica Ximenes Chapman brings a luxury-minded perspective to appraisal,
+            gemology, and jewelry design. Her practice is envisioned as private,
+            detail-driven, and tailored to clients who value expertise, discretion,
+            and a refined experience.
+          </p>
+          <p>
+            The Expert Appraiser is positioned to serve clients seeking guidance on
+            fine jewelry, diamonds, estate pieces, insurance documentation,
+            valuation support, and select personal property categories.
+          </p>
+          <p>
+            This website is currently a stylish draft placeholder and will evolve
+            into the full brand site.
+          </p>
+          <p class="signature-note">
+            Serving Houston, Texas by appointment.
+          </p>
+        </div>
+
+        <div class="about-image-wrap">
+          <img src="images/angelica-portrait.png" alt="Portrait of Angelica Ximenes Chapman">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="mini">Services</span>
+        <h3>Draft service categories for initial brand presentation.</h3>
+        <p>
+          These are placeholder categories for the first visual version of the site and can be refined later.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="card">
+          <h4>Fine Jewelry Appraisals</h4>
+          <p>Professional valuation support for rings, necklaces, bracelets, earrings, and curated luxury jewelry collections.</p>
+        </article>
+
+        <article class="card">
+          <h4>Diamond Appraisals</h4>
+          <p>Assessment and documentation for loose diamonds and mounted stones with an emphasis on clarity, quality, and market context.</p>
+        </article>
+
+        <article class="card">
+          <h4>Insurance Replacement Appraisals</h4>
+          <p>Clear valuation documentation intended to support insurance coverage and replacement planning for significant pieces.</p>
+        </article>
+
+        <article class="card">
+          <h4>Estate & Heirloom Jewelry</h4>
+          <p>Thoughtful review of inherited or legacy pieces for valuation, documentation, and informed decision-making.</p>
+        </article>
+
+        <article class="card">
+          <h4>Personal Property Appraisals</h4>
+          <p>Select personal property, decorative arts, and luxury items considered within an elevated appraisal framework.</p>
+        </article>
+
+        <article class="card">
+          <h4>Jewelry Design Consultation</h4>
+          <p>Advisory support for custom jewelry concepts, redesign ideas, and elevated client guidance around meaningful pieces.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="credentials">
+    <div class="container">
+      <div class="section-head">
+        <span class="mini">Brand Positioning</span>
+        <h3>Expertise, trust, and a high-touch client experience.</h3>
+        <p>
+          A clean trust row gives the site more substance without getting hung up on final wording.
+        </p>
+      </div>
+
+      <div class="trust-grid">
+        <div class="trust-item">
+          <strong>Graduate Gemologist</strong>
+          <span>Luxury-focused gem and jewelry knowledge</span>
+        </div>
+        <div class="trust-item">
+          <strong>Jewelry Designer</strong>
+          <span>Refined aesthetic judgment and creative insight</span>
+        </div>
+        <div class="trust-item">
+          <strong>Appraisal Services</strong>
+          <span>Professional, private, and detail-oriented</span>
+        </div>
+        <div class="trust-item">
+          <strong>By Appointment</strong>
+          <span>Serving Houston clients with a boutique approach</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="cta-band">
+        <div class="cta-panel">
+          <span class="mini">Contact</span>
+          <h3>Ready for the next version when you are.</h3>
+          <p>
+            This draft page is intended as a polished first impression. As the brand evolves,
+            services, biography, credentials, and appointment details can be expanded.
+          </p>
+          <p>
+            For now, this section gives you a clean contact destination and a finished feel.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:info@theexpertappraiser.net">Email the Practice</a>
+            <a class="btn btn-secondary" href="mailto:angelica@theexpertappraiser.net">Contact Angelica</a>
+          </div>
+        </div>
+
+        <div class="cta-image-wrap">
+          <img src="images/appraisal-office-detail.png" alt="Luxury appraisal office desk with jewelry and gemological tools">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>The Expert Appraiser</strong><br>
+        Angelica Ximenes Chapman<br>
+        Houston, Texas
+      </div>
+      <div>
+        <a href="mailto:info@theexpertappraiser.net">info@theexpertappraiser.net</a><br>
+        Draft placeholder site for initial brand presentation
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
