@@ -5,6 +5,7 @@
   <title>The Expert Appraiser | Angelica Ximenes Chapman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Luxury jewelry and personal property appraisal services by Angelica Ximenes Chapman in Houston, Texas.">
+
   <style>
     :root {
       --navy: #0f1d3a;
@@ -23,9 +24,7 @@
 
     * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -51,7 +50,7 @@
     }
 
     .topbar {
-      background: rgba(15, 29, 58, 0.96);
+      background: rgba(15, 29, 58, 0.98);
       color: var(--white);
       position: sticky;
       top: 0;
@@ -106,7 +105,7 @@
       position: relative;
       min-height: 78vh;
       background:
-        linear-gradient(90deg, rgba(15,29,58,0.88) 0%, rgba(15,29,58,0.78) 26%, rgba(15,29,58,0.36) 48%, rgba(15,29,58,0.08) 62%, rgba(15,29,58,0.00) 100%),
+        linear-gradient(90deg, rgba(15,29,58,0.92) 0%, rgba(15,29,58,0.78) 30%, rgba(15,29,58,0.38) 50%, rgba(15,29,58,0.08) 72%, rgba(15,29,58,0.00) 100%),
         url('images/hero-main.png') center center / cover no-repeat;
       display: flex;
       align-items: center;
@@ -117,7 +116,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.22));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.04), rgba(0,0,0,0.16));
       pointer-events: none;
     }
 
@@ -154,7 +153,7 @@
     .hero p {
       font-size: 19px;
       max-width: 560px;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.94);
       margin: 0 0 28px;
     }
 
@@ -404,15 +403,15 @@
       }
 
       .hero {
-        min-height: auto;
+        min-height: 72vh;
         background:
-          linear-gradient(180deg, rgba(15,29,58,0.72) 0%, rgba(15,29,58,0.82) 100%),
-          url('images/hero-main.png') center center / cover no-repeat;
+          linear-gradient(90deg, rgba(15,29,58,0.94) 0%, rgba(15,29,58,0.82) 34%, rgba(15,29,58,0.28) 62%, rgba(15,29,58,0.00) 100%),
+          url('images/hero-main.png') 67% center / cover no-repeat;
       }
 
       .hero-content {
-        max-width: 100%;
-        padding: 76px 0;
+        max-width: 560px;
+        padding: 72px 0;
       }
     }
 
@@ -427,13 +426,48 @@
         font-size: 14px;
       }
 
+      .brand .name {
+        font-size: 24px;
+      }
+
       .service-grid,
       .trust-grid {
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(90deg, rgba(15,29,58,0.94) 0%, rgba(15,29,58,0.78) 38%, rgba(15,29,58,0.26) 68%, rgba(15,29,58,0.00) 100%),
+          url('images/hero-main.png') 64% center / cover no-repeat;
+      }
+
+      .hero::after {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0.10));
+      }
+
       .hero-content {
-        padding: 64px 0;
+        padding: 56px 0 52px;
+        max-width: 92%;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.18em;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+        max-width: 95%;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+      }
+
+      .hero p {
+        font-size: 17px;
+        max-width: 92%;
       }
 
       .card,
@@ -445,8 +479,34 @@
         padding: 68px 0;
       }
     }
+
+    @media (max-width: 460px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .hero {
+        background:
+          linear-gradient(90deg, rgba(15,29,58,0.96) 0%, rgba(15,29,58,0.84) 44%, rgba(15,29,58,0.34) 73%, rgba(15,29,58,0.04) 100%),
+          url('images/hero-main.png') 69% center / cover no-repeat;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn {
+        width: auto;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <header class="topbar">
@@ -456,6 +516,7 @@
         <span class="name">The Expert Appraiser</span>
         <span class="sub">Angelica Ximenes Chapman</span>
       </div>
+
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -471,10 +532,13 @@
         <span class="eyebrow">Fine Jewelry • Diamonds • Personal Property</span>
         <h1>The Expert Appraiser</h1>
         <h2>Angelica Ximenes Chapman</h2>
+
         <p>
-          Refined appraisal and advisory services for fine jewelry, diamonds, luxury pieces,
-          and select personal property — delivered with professionalism, discretion, and elevated taste.
+          Refined appraisal and advisory services for fine jewelry, diamonds,
+          luxury pieces, and select personal property — delivered with
+          professionalism, discretion, and elevated taste.
         </p>
+
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">Request a Consultation</a>
           <a class="btn btn-secondary" href="#services">Explore Services</a>
@@ -502,15 +566,18 @@
             detail-driven, and tailored to clients who value expertise, discretion,
             and a refined experience.
           </p>
+
           <p>
             The Expert Appraiser is positioned to serve clients seeking guidance on
             fine jewelry, diamonds, estate pieces, insurance documentation,
             valuation support, and select personal property categories.
           </p>
+
           <p>
             This website is currently a stylish draft placeholder and will evolve
             into the full brand site.
           </p>
+
           <p class="signature-note">
             Serving Houston, Texas by appointment.
           </p>
@@ -582,14 +649,17 @@
           <strong>Graduate Gemologist</strong>
           <span>Luxury-focused gem and jewelry knowledge</span>
         </div>
+
         <div class="trust-item">
           <strong>Jewelry Designer</strong>
           <span>Refined aesthetic judgment and creative insight</span>
         </div>
+
         <div class="trust-item">
           <strong>Appraisal Services</strong>
           <span>Professional, private, and detail-oriented</span>
         </div>
+
         <div class="trust-item">
           <strong>By Appointment</strong>
           <span>Serving Houston clients with a boutique approach</span>
@@ -604,16 +674,19 @@
         <div class="cta-panel">
           <span class="mini">Contact</span>
           <h3>Ready for the next version when you are.</h3>
+
           <p>
             This draft page is intended as a polished first impression. As the brand evolves,
             services, biography, credentials, and appointment details can be expanded.
           </p>
+
           <p>
             For now, this section gives you a clean contact destination and a finished feel.
           </p>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="mailto:info@theexpertappraiser.net">Email the Practice</a>
-            <a class="btn btn-secondary" href="mailto:angelica@theexpertappraiser.net">Contact Angelica</a>
+            <a class="btn btn-secondary" href="mailto:ang@theexpertappraiser.net">Contact Angelica</a>
           </div>
         </div>
 
@@ -631,6 +704,7 @@
         Angelica Ximenes Chapman<br>
         Houston, Texas
       </div>
+
       <div>
         <a href="mailto:info@theexpertappraiser.net">info@theexpertappraiser.net</a><br>
         Draft placeholder site for initial brand presentation
